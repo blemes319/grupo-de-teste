@@ -9,21 +9,11 @@ const Form = ({ onSubmit }) => {
     e.preventDefault();
     const { value, coin } = e.target.elements;
 
-    onSubmit({
-      value: value.value,
-      coin: coin.value,
-    });
+    // onSubmit({
+    //   value: value.value,
+    //   // coin: coin.value,
+    // });
   };
-
-  // const onChangeError = (e) => {
-  //   if (isNaN(e)) {
-  //     setError("Não é um número");
-  //     setDisable(true);
-  //   } else {
-  //     setError("");
-  //     setDisable(false);
-  //   }
-  // };
 
   const onChangeValue = (e) => {
     setValue(e);
@@ -31,22 +21,16 @@ const Form = ({ onSubmit }) => {
     if (isNaN(e) === true) {
       setError("Não é um número o que foi digitado!");
       setDisable(true);
-    } else if (e === false) {
+    }
+    if (isNaN(e) === false) {
       setError("");
       setDisable(false);
-    } else {
-      setError("Campo vazio");
-      setDisable(false);
     }
+    // } else {
+    //   setError("Campo vazio");
+    //   setDisable(true);
+    // }
   };
-
-  // const onChangeStatusDisable = (error) => {
-  //   if (error === "") {
-  //     setDisable(false);
-  //   } else if (error != "") {
-  //     setDisable(true);
-  //   }
-  // };
 
   return (
     <form onSubmit={handleSubmit}>
