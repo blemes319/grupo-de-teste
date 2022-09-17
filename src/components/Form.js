@@ -3,7 +3,7 @@ import { useState } from "react";
 const Form = ({ onSubmit }) => {
   const [error, setError] = useState("");
   const [disable, setDisable] = useState(false);
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,38 +15,20 @@ const Form = ({ onSubmit }) => {
     });
   };
 
-  // const onChangeError = (e) => {
-  //   if (isNaN(e)) {
-  //     setError("Não é um número");
-  //     setDisable(true);
-  //   } else {
-  //     setError("");
-  //     setDisable(false);
-  //   }
-  // };
-
   const onChangeValue = (e) => {
     setValue(e);
 
     if (isNaN(e) === true) {
       setError("Não é um número o que foi digitado!");
       setDisable(true);
-    } else if (e === false) {
+    } else if (isNaN(e) === false) {
       setError("");
       setDisable(false);
     } else {
-      setError("Campo vazio");
-      setDisable(false);
+      setError("Campo está vazio");
+      setDisable(true);
     }
   };
-
-  // const onChangeStatusDisable = (error) => {
-  //   if (error === "") {
-  //     setDisable(false);
-  //   } else if (error != "") {
-  //     setDisable(true);
-  //   }
-  // };
 
   return (
     <form onSubmit={handleSubmit}>
