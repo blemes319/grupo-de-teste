@@ -1,18 +1,30 @@
 import { useState } from "react";
 
-const Form = ({ onSubmit }) => {
+const Form = () => {
   const [error, setError] = useState("");
   const [disable, setDisable] = useState(false);
+  // const value = useRef(0);
   const [value, setValue] = useState(0);
+  const [showState, setShowState] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { value, coin } = e.target.elements;
+    // const { value, coin } = e.target.elements;
 
-    onSubmit({
-      value: value.value,
-      coin: coin.value,
-    });
+    // onSubmit({
+    //   value: value.value,
+    //   coin: coin.value,
+    // });
+  };
+  const clearValue = () => {
+    setValue(0);
+    setDisable(true);
+    setError("");
+  };
+
+  const showCalculateValue = () => {
+    setShowState(!showState);
+    console.log(showState);
   };
 
   const onChangeValue = (e) => {
@@ -58,11 +70,22 @@ const Form = ({ onSubmit }) => {
         </option>
         <option value="GBP">Libra Esterlina</option>
       </select>
-      <button type="submit" disabled={disable} role="calcular">
+      <button
+        type="submit"
+        onClick={showCalculateValue}
+        disabled={disable}
+        role="calcular"
+      >
         Calcular
       </button>
+      <button onClick={clearValue}>Limpar</button>
       Valor Convertido:
-      <label role="out">{isNaN(value) ? "Valor inválido" : value}</label>
+      <label
+        style={{ display: showState === true ? "inline" : "none" }}
+        role="out"
+      >
+        {isNaN(value) ? "Valor inválido" : value}
+      </label>
       {/* <button type="submit">CalcularDois</button> */}
       <p>{error}</p>
     </form>
