@@ -9,17 +9,19 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const { value, coin } = e.target.elements;
+    // const { value, coin } = e.target.value;
 
     // onSubmit({
     //   value: value.value,
     //   coin: coin.value,
     // });
   };
+
   const clearValue = () => {
     setValue(0);
     setDisable(true);
     setError("");
+    setShowState(false);
   };
 
   const showCalculateValue = () => {
@@ -78,7 +80,9 @@ const Form = () => {
       >
         Calcular
       </button>
-      <button onClick={clearValue}>Limpar</button>
+      <button onClick={clearValue} role="limpar">
+        Limpar
+      </button>
       Valor Convertido:
       <label
         style={{ display: showState === true ? "inline" : "none" }}
