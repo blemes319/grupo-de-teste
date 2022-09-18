@@ -11,7 +11,14 @@ body,html{
   border-radius: 5px;
 }
 
-button{
-  padding: 5px;
-  /* color: black; */
+.layout-form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.history-show{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
