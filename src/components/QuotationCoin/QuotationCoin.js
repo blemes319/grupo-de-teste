@@ -1,14 +1,15 @@
-const getCoin = async () => {
-  const url = "https://api.hgbrasil.com/finance?key=7ea9c19d";
-  const resp = await fetch(url);
-  const data = await resp.json();
-
-  return data;
-};
+import { getCoin } from "./service/coins_service";
 
 const QuotationCoin = () => {
-  const data = getCoin();
-  return <div>{data}</div>;
+  const { USD, EUR, ARS } = getCoin();
+
+  return (
+    <div>
+      <p>{USD ?? `Cotação do ${USD} não encontrado`}</p>
+      <p>{EUR ?? `Cotação do ${EUR} não encontrado`}</p>
+      <p>{ARS ?? `Cotação do ${ARS} não encontrado`}</p>
+    </div>
+  );
 };
 
 export default QuotationCoin;
