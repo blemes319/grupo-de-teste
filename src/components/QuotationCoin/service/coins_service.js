@@ -1,7 +1,9 @@
-export const getCoin = async () => {
-  return fetch("https://api.hgbrasil.com/finance?format=json-cors&key=120e72ee")
+export const getCoinService = async () => {
+  return await fetch(
+    "https://api.hgbrasil.com/finance?format=json-cors&key=120e72ee"
+  )
     .then((data) => data.json())
-    .then((data) => JSON.parse(data))
+    .then((data) => console.log("Direto do service", data))
     .then((data) => {
       return {
         USD: data.results.currencies.USD.buy,
