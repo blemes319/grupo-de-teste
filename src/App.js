@@ -7,7 +7,6 @@ function App() {
     <div className="layout-form">
       <Form />
       <div className="history-show">
-        <p>teste</p>
         <QuotationCoin />
       </div>
     </div>

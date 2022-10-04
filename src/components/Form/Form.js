@@ -76,7 +76,7 @@ const Form = () => {
         type="submit"
         onClick={showCalculateValue}
         disabled={disable}
-        role="calcular"
+        // role="calcular"
       >
         Calcular
       </button>

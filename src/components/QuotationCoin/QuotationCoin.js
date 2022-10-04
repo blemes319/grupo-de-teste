@@ -1,15 +1,10 @@
+import { useState } from "react";
 import { getCoinService } from "./service/coins_service";
 
 const QuotationCoin = () => {
-  const { USD, EUR, ARS } = getCoinService();
+  const coin = getCoinService();
 
-  return (
-    <div>
-      <p>{USD ?? `Cotação do USD não encontrado`}</p>
-      <p>{EUR ?? `Cotação do EUR não encontrado`}</p>
-      <p>{ARS ?? `Cotação do ARS não encontrado`}</p>
-    </div>
-  );
+  console.log("coin: ", coin.USD);
 };
 
 export default QuotationCoin;
