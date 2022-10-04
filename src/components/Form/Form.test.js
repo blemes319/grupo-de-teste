@@ -39,3 +39,8 @@ describe("test for input", () => {
     expect(buttonCalculate).toBeDisabled();
   });
 });
+// proximos testes
+// criar função de converter o valor
+// se as moedas forem iguais retornar o mesmo valor
+// senão retornar o valor convertido
+// Com o valor mockado
